@@ -1,6 +1,10 @@
+function objectsEqual(a, b) { }
+
 var doubler = function(a, b) {
   return a + a + b + b;
 };
+
+// Do not change below this line
 
 console.assert(doubler(4,2) === 12);
 console.assert(doubler(1,3) === 8);
@@ -16,8 +20,6 @@ function m1() { return 1; }
 
 console.assert(doubler(m4, m2) === 12);
 console.assert(doubler(m1, m3) === 8);
-
-function objectsEqual() { }
 
 var a = { z: 42 , t: 7 }, b = { t: 7, z: 42 }
 
