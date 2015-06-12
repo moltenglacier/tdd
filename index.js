@@ -1,8 +1,38 @@
-function objectsEqual(a, b) { }
+function objectsEqual() {
+  var a = arguments[0];
+  var b = arguments[1];
+  var equal = true;
+  Object.keys(a).forEach(function(key){
+    if(equal)
+      equal = a[key] === b[key] ? true : false;
+  });
+  return equal;
+}
 
 var doubler = function(a, b) {
+  if(areFunctions(a, b)){
+    return a() * 2 + b() * 2;
+  }
+  if(isObject(a)){
+    Object.keys(a).forEach(function(acc, key){
+      a[key] += a[key];
+    });
+    return a;
+  }
   return a + a + b + b;
 };
+
+function isObject(a){
+  return is(a, 'object');
+}
+
+function areFunctions(a, b){
+  return is(a, 'function') && is(b, 'function');
+}
+
+function is(a, type){
+  return typeof a === type;
+}
 
 // Do not change below this line
 
